@@ -4,14 +4,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using Wyklad4.Services;
 
-namespace Wyklad4
+namespace Cw3
 {
     public class Startup
     {
@@ -25,8 +25,6 @@ namespace Wyklad4
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //AddSingleton, AddTransient, AddScoped
-            services.AddScoped<IStudentsDal, SqlServerDbDal>();
             services.AddControllers();
         }
 
@@ -37,6 +35,8 @@ namespace Wyklad4
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseHttpsRedirection();
 
             app.UseRouting();
 
