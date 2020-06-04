@@ -30,13 +30,13 @@ namespace Cw10.Controllers
             return Ok(_context.GetStudents());
         }
 
-        [HttpPost]
+        [HttpPut("modify")]
         public IActionResult ModifyStudent(ModifyStudentRequest request)
         {
             return Ok(_context.ModifyStudent(request));
         }
 
-        [HttpDelete]
+        [HttpDelete("delete")]
         public IActionResult DeleteStudent(DeleteStudentRequest request)
         {
             return Ok(_context.DeleteStudent(request));
